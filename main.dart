@@ -1,36 +1,151 @@
 import 'package:flutter/material.dart';
 
+void main() {
+  runApp(const MyApp());
+}
 
-void main() => runApp(MaterialApp(
-  home: Home(),
-  ),
-);
-
-class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+class MyApp extends StatelessWidget {
+  const MyApp({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        title: Text('This is my first flutter App'),
-        backgroundColor: Colors.amber,
-        centerTitle: true,
-      ),
-      
-      body:Column(
-        children: [
-          Text(
-            'hello world',
-            style: TextStyle(
-                fontSize: 30.0,
-                fontWeight: FontWeight.bold,
-                fontFamily: 'IndieFlower'
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: Text('The Rental App'),
+          centerTitle: true,
+          backgroundColor: Colors.green,
+
+        ),
+
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Positioned(
+              left: 5.0,
+              top: 5.0,
+              child: Image.asset('assets/t.jpeg'),
             ),
-          ),
-          Image(image: NetworkImage('https://th.bing.com/th/id/R.3fd310a084fa6d44b3b00ec322268ad6?rik=EybTHY%2bawgddBA&riu=http%3a%2f%2f3.bp.blogspot.com%2f-_4uTSk4-asA%2fT1_TopmjxxI%2fAAAAAAAAE1k%2fChRe5rhxjkk%2fs1600%2fHigh_Definition_Wallpaper_100.jpg&ehk=9rBXlPPcytt67iWlWb8DMBO6nRQzYaNMoqkYDXPpZKQ%3d&risl=&pid=ImgRaw&r=0')),
-          Image(image: AssetImage('assets/Screenshot (5).jpg'))
-        ],
+
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+
+                ElevatedButton(
+                  onPressed: () {},
+                  child:
+                  Text('LandLord'),
+
+                ),
+
+                ElevatedButton(
+                  onPressed: () {},
+
+                  child: Text('Tenant'),
+                ),
+              ],
+            ),
+
+
+            Form(child: Column(
+              children: [
+                SizedBox(height: 20.0,),
+                TextFormField(
+                  keyboardType: TextInputType.text,
+                  decoration: InputDecoration(
+                    hintText: 'Enter username',
+                    prefixIcon: Icon(Icons.person),
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(70)
+                    ),
+                  ),
+                  onChanged: (String value) {
+                  },
+                  validator: (value) {
+                    return value!.isEmpty ? 'please enter username' : null;
+                  }
+
+                ),
+                SizedBox(height: 20,),
+
+                TextFormField(
+                    keyboardType: TextInputType.emailAddress,
+                    decoration: InputDecoration(
+                      hintText: 'Enter email address',
+                      prefixIcon: Icon(Icons.email),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50.0)
+                      ),
+                    ),
+                    onChanged: (String value) {
+                    },
+                    validator: (value) {
+                      return value!.isEmpty ? 'please enter email' : null;
+                    }
+
+                ),
+                  SizedBox(height: 20,),
+                TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
+                    decoration: InputDecoration(
+                      hintText: 'Enter password',
+                      prefixIcon: Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50.0)
+                      ),
+                    ),
+                    onChanged: (String value) {
+                    },
+                    validator: (value) {
+                      return value!.isEmpty ? 'please enter password' : null;
+                    }
+
+                ),
+
+
+                SizedBox(height: 20,),
+                TextFormField(
+                    keyboardType: TextInputType.visiblePassword,
+                    decoration: InputDecoration(
+                      hintText: 'confirm password',
+                      prefixIcon: Icon(Icons.lock),
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(50.0)
+                      ),
+                    ),
+                    onChanged: (String value) {
+                    },
+                    validator: (value) {
+                      return value!.isEmpty ? 'please enter password' : null;
+                    }
+
+                ),
+              ],
+            ),
+            ),
+           SizedBox(height: 20.0,),
+           Row(
+             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+             children: [
+
+               ElevatedButton(
+                 onPressed: () {},
+                 child:
+                 Text('login'),
+
+               ),
+
+               ElevatedButton(
+                 onPressed: () {},
+
+                 child: Text('sign up'),
+               ),
+             ],
+           ),
+          ],
+
+        ),
       ),
     );
   }
